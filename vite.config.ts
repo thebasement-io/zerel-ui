@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite'
-import path from 'path'
+import path, { resolve } from 'path'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 
@@ -11,5 +11,24 @@ export default defineConfig({
             // match tsconfig "@/*": ["./src/*"]
             '@': path.resolve(__dirname, './src'),
         },
+    },
+    build: {
+        lib: {
+            entry: resolve(__dirname, 'src/index.ts'),
+            name: 'ZerelUI',
+            fileName: (format) => `zerel-ui.${format}.js`,
+        },
+        rollupOptions: {
+            external: ['react', 'react-dom'],
+            output: {
+                globals: {
+                    react: 'React',
+                    'react-dom': 'ReactDOM',
+                },
+            },
+        },
+        // Specify output directory
+        outDir: 'dist',
+        minify: process.env.NODE_ENV === 'production',
     },
 })

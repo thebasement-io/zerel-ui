@@ -4,11 +4,20 @@
     "version": "0.0.1",
     "author": "Felipe Afonso",
     "type": "module",
-    "main": "./src/index.ts",
+    "main": "./dist/zerel-ui.umd.js",
+    "module": "./dist/zerel-ui.es.js",
+    "types": "./dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
     "exports": {
         ".": {
-            "import": "./src/index.ts"
-        }
+			"types": "./dist/index.d.ts",
+            "import": "./dist/zerel-ui.es.js",
+            "require": "./dist/zerel-ui.umd.js"
+        },
+        "./package.json": "./package.json",
+        "./dist/": "./dist/"
     },
     "scripts": {
         "lint": "eslint .",
@@ -16,7 +25,8 @@
         "vite": "vite dev",
         "format": "prettier --write .",
         "dev": "storybook dev -p 3000 --no-open",
-        "build": "storybook build"
+        "build": "vite build",
+        "build-storybook": "storybook build"
     },
     "dependencies": {
         "@radix-ui/react-checkbox": "^1.3.2",

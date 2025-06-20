@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true, // Set to false if tsc is directly emitting JS, but we use Vite
+        "jsx": "react-jsx",
+
+        /* Linting */
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+
+        /* For declaration files */
+        "declaration": true, // Enable generation of .d.ts files
+        "emitDeclarationOnly": true, // Only emit .d.ts files, not .js files (Vite handles JS)
+        "outDir": "./dist", // Output directory for .d.ts files
+        "rootDir": "./src" // Where to find source files for declarations
+    },
+    "include": ["src"],
+    "exclude": ["node_modules", "dist"]
+}
