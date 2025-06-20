@@ -20,11 +20,16 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
 
+        "baseUrl": ".",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+
         /* For declaration files */
-        "declaration": true, // Enable generation of .d.ts files
-        "emitDeclarationOnly": true, // Only emit .d.ts files, not .js files (Vite handles JS)
-        "outDir": "./dist", // Output directory for .d.ts files
-        "rootDir": "./src" // Where to find source files for declarations
+        // "declaration": true, // Enable generation of .d.ts files
+        // "emitDeclarationOnly": true, // Only emit .d.ts files, not .js files (Vite handles JS)
+        // "outDir": "./dist", // Output directory for .d.ts files
+        // "rootDir": "./src" // Where to find source files for declarations
     },
     "include": ["src"],
     "exclude": ["node_modules", "dist"]

@@ -4,28 +4,18 @@
     "version": "0.0.2",
     "author": "Felipe Afonso",
     "type": "module",
-    "main": "./dist/zerel-ui.umd.js",
-    "module": "./dist/zerel-ui.es.js",
-    "types": "./dist/index.d.ts",
+    "main": "dist/zerel-ui.js",
+    "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
-    "exports": {
-        ".": {
-            "types": "./dist/index.d.ts",
-            "import": "./dist/zerel-ui.es.js",
-            "require": "./dist/zerel-ui.umd.js"
-        },
-        "./package.json": "./package.json",
-        "./dist/": "./dist/"
-    },
     "scripts": {
         "lint": "eslint .",
         "preview": "vite preview",
         "vite": "vite dev",
         "format": "prettier --write .",
         "dev": "storybook dev -p 3000 --no-open",
-        "build": "vite build",
+        "build": "vite build && npx @tailwindcss/cli -i src/index.css -o dist/tailwind.css",
         "build-storybook": "storybook build"
     },
     "dependencies": {
@@ -63,6 +53,7 @@
         "tw-animate-css": "^1.3.4",
         "typescript": "~5.8.3",
         "typescript-eslint": "^8.30.1",
-        "vite": "^6.3.5"
+        "vite": "^6.3.5",
+        "vite-plugin-dts": "^4.5.4"
     }
 }
