@@ -1,7 +1,7 @@
 {
     "name": "zerel-ui",
     "private": false,
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Felipe Afonso",
     "type": "module",
     "main": "./dist/zerel-ui.umd.js",
@@ -12,7 +12,7 @@
     ],
     "exports": {
         ".": {
-			"types": "./dist/index.d.ts",
+            "types": "./dist/index.d.ts",
             "import": "./dist/zerel-ui.es.js",
             "require": "./dist/zerel-ui.umd.js"
         },
