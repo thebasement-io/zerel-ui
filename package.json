@@ -1,8 +1,15 @@
 {
     "name": "zerel-ui",
-    "private": true,
+    "private": false,
     "version": "0.0.0",
+    "author": "Felipe Afonso",
     "type": "module",
+    "main": "./src/index.ts",
+    "exports": {
+        ".": {
+            "import": "./src/index.ts"
+        }
+    },
     "scripts": {
         "lint": "eslint .",
         "preview": "vite preview",
