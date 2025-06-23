@@ -14,6 +14,10 @@
             "import": "./dist/zerel-ui.js"
         }
     },
+	"publishConfig": {
+		"main": "dist/zerel-ui.js",
+		"types": "dist/index.d.ts",
+	},
     "scripts": {
         "lint": "eslint .",
         "preview": "vite preview",
