@@ -11,12 +11,9 @@
     ],
     "exports": {
         ".": {
-            "import": "./dist/zerel-ui.js"
+            "import": "./dist/zerel-ui.js",
+            "types": "./dist/index.d.ts"
         }
-    },
-    "publishConfig": {
-        "main": "dist/zerel-ui.js",
-        "types": "dist/index.d.ts"
     },
     "scripts": {
         "lint": "eslint .",
@@ -24,7 +21,7 @@
         "vite": "vite dev",
         "format": "prettier --write .",
         "dev": "storybook dev -p 3000 --no-open",
-        "build": "vite build && npx @tailwindcss/cli -i src/index.css -o dist/tailwind.css",
+        "build": "vite build",
         "build-storybook": "storybook build"
     },
     "dependencies": {

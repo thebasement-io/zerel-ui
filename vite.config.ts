@@ -22,7 +22,6 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, 'src/index.ts'),
             name: 'ZerelUI',
-            // fileName: (format) => `zerel-ui.${format}.js`,
         },
         rollupOptions: {
             external: ['react', 'react/jsx-runtime', 'react-dom'],
