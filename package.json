@@ -22,7 +22,8 @@
         "format": "prettier --write .",
         "dev": "storybook dev -p 3000 --no-open",
         "build": "vite build",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "publish-patch": "npm run build && npm version patch && npm publish"
     },
     "dependencies": {
         "@radix-ui/react-checkbox": "^1.3.2",
