@@ -16,7 +16,7 @@
     },
 	"publishConfig": {
 		"main": "dist/zerel-ui.js",
-		"types": "dist/index.d.ts",
+		"types": "dist/index.d.ts"
 	},
     "scripts": {
         "lint": "eslint .",
