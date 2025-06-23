@@ -3,12 +3,14 @@ import path, { resolve } from 'path'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
+import { libInjectCss } from 'vite-plugin-lib-inject-css'
 
 // https://vite.dev/config/
 export default defineConfig({
     plugins: [
         react(),
         tailwindcss(),
+        libInjectCss(),
         dts({ rollupTypes: true, tsconfigPath: './tsconfig.lib.json' }),
     ],
     resolve: {
