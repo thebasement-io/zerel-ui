@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
+import preserveDirectives from 'rollup-preserve-directives'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -11,6 +12,7 @@ export default defineConfig({
         react(),
         tailwindcss(),
         libInjectCss(),
+        preserveDirectives(),
         dts({ rollupTypes: true, tsconfigPath: './tsconfig.lib.json' }),
     ],
     resolve: {
