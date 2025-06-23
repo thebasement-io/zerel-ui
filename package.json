@@ -9,6 +9,11 @@
     "files": [
         "dist"
     ],
+	"exports": {
+		".": {
+			"import": "./dist/zerel-ui.js"
+		},
+	},
     "scripts": {
         "lint": "eslint .",
         "preview": "vite preview",

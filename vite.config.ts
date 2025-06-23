@@ -9,7 +9,7 @@ export default defineConfig({
     plugins: [
         react(),
         tailwindcss(),
-        dts({ include: ['src'], insertTypesEntry: true }),
+        dts({ rollupTypes: true, tsconfigPath: './tsconfig.lib.json' }),
     ],
     resolve: {
         alias: {
