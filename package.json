@@ -1,7 +1,7 @@
 {
     "name": "zerel-ui",
     "private": false,
-    "version": "0.0.3",
+    "version": "0.0.4",
     "author": "Felipe Afonso",
     "type": "module",
     "main": "dist/zerel-ui.js",
@@ -9,11 +9,11 @@
     "files": [
         "dist"
     ],
-	"exports": {
-		".": {
-			"import": "./dist/zerel-ui.js"
-		}
-	},
+    "exports": {
+        ".": {
+            "import": "./dist/zerel-ui.js"
+        }
+    },
     "scripts": {
         "lint": "eslint .",
         "preview": "vite preview",
