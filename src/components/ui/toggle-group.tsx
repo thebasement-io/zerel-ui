@@ -1,4 +1,5 @@
 "use client"
+import "../../index.css"
 
 import * as React from "react"
 import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group"

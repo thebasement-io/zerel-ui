@@ -5,6 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import preserveDirectives from 'rollup-preserve-directives'
+import { glob } from 'glob'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,17 +25,34 @@ export default defineConfig({
     build: {
         copyPublicDir: false,
         lib: {
-            entry: resolve(__dirname, 'src/index.ts'),
+            entry: {
+                // Individual component entries
+                ...Object.fromEntries(
+                    glob.sync('src/components/ui/*.tsx').map((file: string) => [
+                        // Create clean entry name: src/components/ui/button.tsx -> button
+                        path.basename(file, '.tsx'),
+                        resolve(__dirname, file),
+                    ]),
+                ),
+                // Also include utilities
+                'lib/utils': resolve(__dirname, 'src/lib/utils.ts'),
+                'hooks/use-mobile': resolve(__dirname, 'src/hooks/use-mobile.ts'),
+            },
             name: 'ZerelUI',
+            formats: ['es'],
         },
         rollupOptions: {
-            external: ['react', 'react/jsx-runtime', 'react-dom'],
-            // output: {
-            //     globals: {
-            //         react: 'React',
-            //         'react-dom': 'ReactDOM',
-            //     },
-            // },
+            external: [
+                'react',
+                'react/jsx-runtime',
+                'react-dom',
+                'tailwindcss',
+            ],
+            output: {
+                preserveModules: false, // We want individual bundles, not preserved modules
+                entryFileNames: '[name].js',
+                assetFileNames: '[name].[ext]',
+            },
         },
         // Specify output directory
         // outDir: 'dist',
