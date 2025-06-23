@@ -83,7 +83,7 @@ export { ScrollArea } from '@/components/ui/scroll-area'
 export {
     ResizablePanelGroup,
     ResizablePanel,
-    ResizableHandle
+    ResizableHandle,
 } from '@/components/ui/resizable'
 
 // Navigation components
@@ -209,17 +209,31 @@ export {
     PopoverTrigger,
     PopoverContent,
 } from '@/components/ui/popover'
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from '@/components/ui/tooltip'
+export {
+    Tooltip,
+    TooltipTrigger,
+    TooltipContent,
+    TooltipProvider,
+} from '@/components/ui/tooltip'
 
 // Complex components
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
-export { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/collapsible'
+export {
+    Accordion,
+    AccordionItem,
+    AccordionTrigger,
+    AccordionContent,
+} from '@/components/ui/accordion'
+export {
+    Collapsible,
+    CollapsibleTrigger,
+    CollapsibleContent,
+} from '@/components/ui/collapsible'
 export {
     Carousel,
     CarouselContent,
     CarouselItem,
     CarouselPrevious,
-    CarouselNext
+    CarouselNext,
 } from '@/components/ui/carousel'
 export {
     Sidebar,
@@ -249,16 +263,12 @@ export {
 } from '@/components/ui/sidebar'
 
 // Specialized input components
-export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from '@/components/ui/input-otp'
-
-// Chart components
 export {
-    ChartContainer,
-    ChartTooltip,
-    ChartTooltipContent,
-    ChartLegend,
-    ChartLegendContent,
-} from '@/components/ui/chart'
+    InputOTP,
+    InputOTPGroup,
+    InputOTPSlot,
+    InputOTPSeparator,
+} from '@/components/ui/input-otp'
 
 // Toast component
 export { Toaster } from '@/components/ui/sonner'
