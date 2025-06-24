@@ -1,5 +1,4 @@
 'use client'
-import '../../index.css'
 
 import * as React from 'react'
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group'

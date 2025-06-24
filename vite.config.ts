@@ -3,7 +3,6 @@ import path, { resolve } from 'path'
 import react from '@vitejs/plugin-react-swc'
 import tailwindcss from '@tailwindcss/vite'
 import dts from 'vite-plugin-dts'
-import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import preserveDirectives from 'rollup-preserve-directives'
 import { glob } from 'glob'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
@@ -13,12 +12,11 @@ export default defineConfig({
     plugins: [
         react(),
         tailwindcss(),
-        libInjectCss(),
         viteStaticCopy({
             targets: [
                 {
-                    src: 'src/index.css',
-                    rename: 'tailwind.css',
+                    src: 'src/theme.css',
+                    rename: 'theme.css',
                     dest: '.',
                 },
             ],
@@ -46,10 +44,7 @@ export default defineConfig({
                 ),
                 // Also include utilities
                 'lib/utils': resolve(__dirname, 'src/lib/utils.ts'),
-                'hooks/use-mobile': resolve(
-                    __dirname,
-                    'src/hooks/use-mobile.ts',
-                ),
+                'lib/use-mobile': resolve(__dirname, 'src/hooks/use-mobile.ts'),
             },
             name: 'ZerelUI',
             formats: ['es'],

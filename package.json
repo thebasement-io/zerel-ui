@@ -9,7 +9,7 @@
     ],
     "exports": {
         "./styles": {
-            "import": "./dist/tailwind.css"
+            "import": "./dist/theme.css"
         },
         "./button": {
             "import": "./dist/button.js",
@@ -187,9 +187,9 @@
             "import": "./dist/lib/utils.js",
             "types": "./dist/lib/utils.d.ts"
         },
-        "./hooks/use-mobile": {
-            "import": "./dist/hooks/use-mobile.js",
-            "types": "./dist/hooks/use-mobile.d.ts"
+        "./lib/use-mobile": {
+            "import": "./dist/lib/use-mobile.js",
+            "types": "./dist/lib/use-mobile.d.ts"
         }
     },
     "scripts": {

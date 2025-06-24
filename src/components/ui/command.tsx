@@ -1,4 +1,3 @@
-import '../../index.css'
 ;('use client')
 
 import * as React from 'react'
