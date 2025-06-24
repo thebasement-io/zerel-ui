@@ -44,4 +44,4 @@ export const Resizable: Story = {
         placeholder: 'This textarea can be resized',
         className: 'resize',
     },
-} 
+}

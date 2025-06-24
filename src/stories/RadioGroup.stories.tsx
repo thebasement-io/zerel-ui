@@ -51,7 +51,7 @@ export const WithDescriptions: Story = {
                 <RadioGroupItem value="default" id="r1" />
                 <div className="grid gap-1.5 leading-none">
                     <Label htmlFor="r1">Default</Label>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-muted-foreground text-xs">
                         Recommended for most users.
                     </p>
                 </div>
@@ -60,7 +60,7 @@ export const WithDescriptions: Story = {
                 <RadioGroupItem value="comfortable" id="r2" />
                 <div className="grid gap-1.5 leading-none">
                     <Label htmlFor="r2">Comfortable</Label>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-muted-foreground text-xs">
                         More space between elements.
                     </p>
                 </div>
@@ -69,7 +69,7 @@ export const WithDescriptions: Story = {
                 <RadioGroupItem value="compact" id="r3" />
                 <div className="grid gap-1.5 leading-none">
                     <Label htmlFor="r3">Compact</Label>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="text-muted-foreground text-xs">
                         Less space between elements.
                     </p>
                 </div>
@@ -100,4 +100,4 @@ export const Form: Story = {
             </RadioGroup>
         </div>
     ),
-} 
+}

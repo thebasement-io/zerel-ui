@@ -53,4 +53,4 @@ export const Loading: Story = {
 
         return <Progress value={progress} className="w-[300px]" />
     },
-} 
+}

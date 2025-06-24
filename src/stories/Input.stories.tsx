@@ -51,4 +51,4 @@ export const WithError: Story = {
         placeholder: 'Invalid input',
         'aria-invalid': true,
     },
-} 
+}

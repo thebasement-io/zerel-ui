@@ -44,4 +44,4 @@ export const WithLabel: Story = {
             <Label htmlFor="airplane-mode">Airplane Mode</Label>
         </div>
     ),
-} 
+}

@@ -57,4 +57,4 @@ export const Small: Story = {
         step: 1,
         className: 'w-[40%]',
     },
-} 
+}

@@ -7,16 +7,19 @@ A React component library built with Vite, Storybook, and Tailwind CSS. Currentl
 You can install Zerel UI using your preferred package manager:
 
 ### npm
+
 ```sh
 npm install zerel-ui
 ```
 
 ### yarn
+
 ```sh
 yarn add zerel-ui
 ```
 
 ### pnpm
+
 ```sh
 pnpm add zerel-ui
 ```
@@ -26,18 +29,18 @@ pnpm add zerel-ui
 Import and use components in your React application:
 
 ```tsx
-import { Button, Card, Badge } from 'zerel-ui';
+import { Button, Card, Badge } from 'zerel-ui'
 
 function App() {
-  return (
-    <div>
-      <Card>
-        <h1>Hello Zerel UI!</h1>
-        <Button variant="default">Click me</Button>
-        <Badge variant="secondary">New</Badge>
-      </Card>
-    </div>
-  );
+    return (
+        <div>
+            <Card>
+                <h1>Hello Zerel UI!</h1>
+                <Button variant="default">Click me</Button>
+                <Badge variant="secondary">New</Badge>
+            </Card>
+        </div>
+    )
 }
 ```
 
@@ -99,4 +102,3 @@ This library is currently in active development. While it currently provides Sha
 - Enhanced theming capabilities
 - Additional utility components
 - Improved documentation and examples
-

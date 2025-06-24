@@ -19,12 +19,10 @@ export const Default: Story = {
     render: () => (
         <ScrollArea className="h-72 w-48 rounded-md border">
             <div className="p-4">
-                <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+                <h4 className="mb-4 text-sm leading-none font-medium">Tags</h4>
                 {Array.from({ length: 50 }).map((_, i) => (
                     <React.Fragment key={i}>
-                        <div className="text-sm">
-                            v1.2.0-beta.{i}
-                        </div>
+                        <div className="text-sm">v1.2.0-beta.{i}</div>
                         {i < 49 && <Separator className="my-2" />}
                     </React.Fragment>
                 ))}
@@ -35,7 +33,7 @@ export const Default: Story = {
 
 export const Horizontal: Story = {
     render: () => (
-        <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
+        <ScrollArea className="w-96 rounded-md border whitespace-nowrap">
             <div className="flex w-max space-x-4 p-4">
                 {Array.from({ length: 20 }).map((_, i) => (
                     <figure key={i} className="shrink-0">
@@ -48,7 +46,7 @@ export const Horizontal: Story = {
                                 height={400}
                             />
                         </div>
-                        <figcaption className="pt-2 text-xs text-muted-foreground">
+                        <figcaption className="text-muted-foreground pt-2 text-xs">
                             Photo by John Doe
                         </figcaption>
                     </figure>
@@ -70,4 +68,4 @@ export const WithCustomScrollbar: Story = {
             </div>
         </ScrollArea>
     ),
-} 
+}

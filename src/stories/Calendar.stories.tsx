@@ -61,11 +61,7 @@ export const Range: Story = {
 
 export const Disabled: Story = {
     render: () => (
-        <Calendar
-            mode="single"
-            disabled
-            className="rounded-md border"
-        />
+        <Calendar mode="single" disabled className="rounded-md border" />
     ),
 }
 
@@ -88,4 +84,4 @@ export const WithDisabledDates: Story = {
             />
         )
     },
-} 
+}

@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
+import {
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from '@/components/ui/accordion'
 import '@/index.css'
 
 const meta = {
@@ -30,13 +35,15 @@ export const Default: Story = {
             <AccordionItem value="item-2">
                 <AccordionTrigger>Is it styled?</AccordionTrigger>
                 <AccordionContent>
-                    Yes. It comes with default styles that matches the other components' aesthetic.
+                    Yes. It comes with default styles that matches the other
+                    components' aesthetic.
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
                 <AccordionTrigger>Is it animated?</AccordionTrigger>
                 <AccordionContent>
-                    Yes. It's animated by default, but you can disable it if you prefer.
+                    Yes. It's animated by default, but you can disable it if you
+                    prefer.
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
@@ -50,13 +57,15 @@ export const Multiple: Story = {
             <AccordionItem value="item-1">
                 <AccordionTrigger>Can I open multiple items?</AccordionTrigger>
                 <AccordionContent>
-                    Yes. With type="multiple", you can open multiple accordion items at the same time.
+                    Yes. With type="multiple", you can open multiple accordion
+                    items at the same time.
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
                 <AccordionTrigger>This one stays open</AccordionTrigger>
                 <AccordionContent>
-                    This content will remain visible even when you open other items.
+                    This content will remain visible even when you open other
+                    items.
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
@@ -76,9 +85,11 @@ export const Single: Story = {
             <AccordionItem value="item-1">
                 <AccordionTrigger>What is React?</AccordionTrigger>
                 <AccordionContent>
-                    React is a JavaScript library for building user interfaces. It lets you compose complex UIs from small and isolated pieces of code called components.
+                    React is a JavaScript library for building user interfaces.
+                    It lets you compose complex UIs from small and isolated
+                    pieces of code called components.
                 </AccordionContent>
             </AccordionItem>
         </Accordion>
     ),
-} 
+}

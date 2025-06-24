@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import * as React from 'react'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from '@/components/ui/collapsible'
 import { Button } from '@/components/ui/button'
 import '@/index.css'
 
@@ -20,7 +24,11 @@ export const Default: Story = {
         const [isOpen, setIsOpen] = React.useState(false)
 
         return (
-            <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-[350px] space-y-2">
+            <Collapsible
+                open={isOpen}
+                onOpenChange={setIsOpen}
+                className="w-[350px] space-y-2"
+            >
                 <div className="flex items-center justify-between space-x-4 px-4">
                     <h4 className="text-sm font-semibold">
                         @peduarte starred 3 repositories
@@ -67,7 +75,9 @@ export const Controlled: Story = {
             <div className="flex items-center justify-between space-x-4 px-4">
                 <h4 className="text-sm font-semibold">Settings</h4>
                 <CollapsibleTrigger asChild>
-                    <Button variant="ghost" size="sm">Toggle</Button>
+                    <Button variant="ghost" size="sm">
+                        Toggle
+                    </Button>
                 </CollapsibleTrigger>
             </div>
             <CollapsibleContent className="space-y-2">
@@ -80,4 +90,4 @@ export const Controlled: Story = {
             </CollapsibleContent>
         </Collapsible>
     ),
-} 
+}

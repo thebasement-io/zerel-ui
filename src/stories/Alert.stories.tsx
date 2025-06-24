@@ -53,7 +53,8 @@ export const WithIcon: Story = {
             </svg>
             <AlertTitle>Warning</AlertTitle>
             <AlertDescription>
-                This action cannot be undone. This will permanently delete your account.
+                This action cannot be undone. This will permanently delete your
+                account.
             </AlertDescription>
         </Alert>
     ),
@@ -65,4 +66,4 @@ export const TitleOnly: Story = {
             <AlertTitle>Success! Your changes have been saved.</AlertTitle>
         </Alert>
     ),
-} 
+}

@@ -1,5 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from '@/components/ui/tooltip'
 import { Button } from '@/components/ui/button'
 import '@/index.css'
 
@@ -56,7 +61,7 @@ export const OnIcon: Story = {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke="currentColor"
-                            className="w-4 h-4"
+                            className="h-4 w-4"
                         >
                             <path
                                 strokeLinecap="round"
@@ -83,11 +88,12 @@ export const LongContent: Story = {
                 </TooltipTrigger>
                 <TooltipContent className="max-w-xs">
                     <p>
-                        This is a longer tooltip content that demonstrates how the tooltip
-                        handles multiple lines of text and longer descriptions.
+                        This is a longer tooltip content that demonstrates how
+                        the tooltip handles multiple lines of text and longer
+                        descriptions.
                     </p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
     ),
-} 
+}

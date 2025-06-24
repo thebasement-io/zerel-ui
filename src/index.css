@@ -4,98 +4,186 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --font-sans: "Rubik", "Rubik Fallback", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    --font-mono: "Roboto Mono", "Roboto Mono Fallback", "Courier New", "Courier", monospace;
+    --font-sans: var(--font-paragraph);
+    --font-mono:
+        'Roboto Mono', 'Roboto Mono Fallback', 'Courier New', 'Courier',
+        monospace;
     --color-border: hsl(var(--border));
     --color-input: hsl(var(--input));
     --color-ring: hsl(var(--ring));
     --color-background: hsl(var(--background));
     --color-foreground: hsl(var(--foreground));
     --color-primary: hsl(var(--primary));
-    --color-primary-foreground: hsl(var(--primary-foreground));
-    --color-secondary: hsl(var(--secondary));
-    --color-secondary-foreground: hsl(var(--secondary-foreground));
+    --color-primary-foreground: hsl(var(--neutral-10));
+    --color-secondary: hsl(var(--primary-surface));
+    --color-secondary-foreground: hsl(var(--primary));
     --color-destructive: hsl(var(--destructive));
-    --color-destructive-foreground: hsl(var(--destructive-foreground));
-    --color-muted: hsl(var(--muted));
-    --color-muted-foreground: hsl(var(--muted-foreground));
-    --color-accent: hsl(var(--accent));
-    --color-accent-foreground: hsl(var(--accent-foreground));
-    --color-popover: hsla(var(--popover));
-    --color-popover-foreground: hsl(var(--popover-foreground));
-    --color-card: hsl(var(--card));
-    --color-card-foreground: hsl(var(--card-foreground));
+    --color-destructive-foreground: hsl(var(--neutral-10));
+    --color-muted: hsl(var(--neutral-20));
+    --color-muted-foreground: hsl(var(--neutral-50));
+    --color-accent: hsl(var(--success));
+    --color-accent-foreground: hsl(var(--neutral-10));
+    --color-popover: hsla(var(--neutral-20));
+    --color-popover-foreground: hsl(var(--neutral-80));
+    --color-card: hsl(var(--neutral-20));
+    --color-card-foreground: hsl(var(--neutral-100));
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
     --animation-accordion-down: accordion-down 0.2s ease-out;
     --animation-accordion-up: accordion-up 0.2s ease-out;
-    --color-sidebar-ring: var(--sidebar-ring);
-    --color-sidebar-border: var(--sidebar-border);
-    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-    --color-sidebar-accent: var(--sidebar-accent);
-    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-    --color-sidebar-primary: var(--sidebar-primary);
-    --color-sidebar-foreground: var(--sidebar-foreground);
-    --color-sidebar: var(--sidebar);
 }
 
 :root {
+    --primary: 226, 70.7%, 40.2%;
+    --primary-surface: 226, 100%, 93.9%;
+    --primary-border: 212, 96.4%, 78.4%;
+    --primary-hover: 224, 64.3%, 32.9%;
+    --primary-pressed: 227, 57.4%, 27.6%;
+    --primary-focus: 228, 96.5%, 88.8%;
+
+    --destructive: 359, 75.2%, 49%;
+    --destructive-surface: 0, 100%, 96.5%;
+    --destructive-border: 0, 58.6%, 88.6%;
+    --destructive-hover: 0, 90.7%, 42%;
+    --destructive-pressed: 359, 89%, 24.9%;
+
+    --warning: 45, 100%, 51.4%;
+    --warning-surface: 50, 100%, 90.2%;
+    --warning-border: 49, 100%, 80.4%;
+    --warning-hover: 43, 95.5%, 43.9%;
+    --warning-pressed: 42, 96.8%, 36.5%;
+
+    --success: 161, 100%, 26.1%;
+    --success-surface: 163, 16.3%, 91.6%;
+    --success-border: 159, 19.6%, 80%;
+    --success-hover: 161, 100%, 25.1%;
+    --success-pressed: 161, 100%, 15.5%;
+
+    --informative: 212, 100%, 42%;
+    --informative-surface: 215, 100%, 94.9%;
+    --informative-border: 212, 61.2%, 86.9%;
+    --informative-hover: 212, 100%, 39%;
+    --informative-pressed: 212, 100%, 23.5%;
+
+    --neutral-10: 0, 0%, 100%;
+    --neutral-20: 0, 0%, 91%;
+    --neutral-30: 0, 0%, 82%;
+    --neutral-40: 0, 0%, 72.9%;
+    --neutral-50: 0, 0%, 63.9%;
+    --neutral-60: 0, 0%, 54.9%;
+    --neutral-70: 0, 0%, 45.9%;
+    --neutral-80: 0, 0%, 36.9%;
+    --neutral-90: 0, 0%, 30.2%;
+    --neutral-100: 0, 0%, 26.7%;
+
+    --font-title: 'Rubik', sans-serif;
+    --font-paragraph: 'Roboto', sans-serif;
+
+    --font-size-text-sm: 0.75rem;
+    --font-size-text-md: 0.875rem;
+    --font-size-text-lg: 1rem;
+    --font-size-text-xl: 1.25rem;
+    --font-size-heading-xs: 1rem;
+    --font-size-heading-sm: 1.25rem;
+    --font-size-heading-md: 1.5rem;
+    --font-size-heading-lg: 1.75rem;
+    --font-size-heading-xl: 2.25rem;
+
+    --line-height-text-sm: 1.125rem;
+    --line-height-text-md: 1.25rem;
+    --line-height-text-lg: 1.5rem;
+    --line-height-text-xl: 1.75rem;
+
+    --line-height-heading-xs: 1.375rem;
+    --line-height-heading-sm: 1.75rem;
+    --line-height-heading-md: 2.125;
+    --line-height-heading-lg: 2.25rem;
+    --line-height-heading-xl: 2.75rem;
+
     --radius: 0.5rem;
-    --background: 0 0% 100%;
-    --foreground: 0 0% 27%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 226 71% 40%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 226 100% 94%;
-    --secondary-foreground: 226 71% 40%;
-
-    --muted: 0 0% 91%;
-    --muted-foreground: 0 0% 55%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 359 75% 49%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --sidebar: hsl(0 0% 98%);
-    --sidebar-foreground: hsl(240 5.3% 26.1%);
-    --sidebar-primary: hsl(240 5.9% 10%);
-    --sidebar-primary-foreground: hsl(0 0% 98%);
-    --sidebar-accent: hsl(240 4.8% 95.9%);
-    --sidebar-accent-foreground: hsl(240 5.9% 10%);
-    --sidebar-border: hsl(220 13% 91%);
-    --sidebar-ring: hsl(217.2 91.2% 59.8%);
-}
-
-.dark {
-    --sidebar: hsl(240 5.9% 10%);
-    --sidebar-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-primary: hsl(224.3 76.3% 48%);
-    --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(240 3.7% 15.9%);
-    --sidebar-accent-foreground: hsl(240 4.8% 95.9%);
-    --sidebar-border: hsl(240 3.7% 15.9%);
-    --sidebar-ring: hsl(217.2 91.2% 59.8%);
+    --box-shadow-1: 1px 2px 2px 0px rgba(0, 0, 0, 0.08) inset;
+    --box-shadow-2: 2px 4px 32px 0px rgba(0, 0, 0, 0.05);
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }
 
+.shadow {
+    box-shadow: var(--box-shadow);
+}
+
+.shadow-lg {
+    box-shadow: var(--box-shadow-lg);
+}
+
+.radius-main {
+    border-radius: var(--radius);
+}
+
+.text-sm {
+    font-size: var(--font-size-text-sm);
+    line-height: var(--line-height-text-sm);
+    font-family: var(--font-paragraph);
+}
+
+.text-md {
+    font-size: var(--font-size-text-md);
+    line-height: var(--line-height-text-md);
+    font-family: var(--font-paragraph);
+}
+
+.text-lg {
+    font-size: var(--font-size-text-lg);
+    line-height: var(--line-height-text-lg);
+    font-family: var(--font-paragraph);
+}
+
+.text-xl {
+    font-size: var(--font-size-text-xl);
+    line-height: var(--line-height-text-xl);
+    font-family: var(--font-paragraph);
+}
+
+.heading-xs {
+    font-size: var(--font-size-heading-xs);
+    line-height: var(--line-height-heading-xs);
+    font-family: var(--font-title);
+    font-weight: 600;
+}
+
+.heading-sm {
+    font-size: var(--font-size-heading-sm);
+    line-height: var(--line-height-heading-sm);
+    font-family: var(--font-title);
+    font-weight: 600;
+}
+
+.heading-md {
+    font-size: var(--font-size-heading-md);
+    line-height: var(--line-height-heading-md);
+    font-family: var(--font-title);
+    font-weight: 600;
+}
+
+.heading-lg {
+    font-size: var(--font-size-heading-lg);
+    line-height: var(--line-height-heading-lg);
+    font-family: var(--font-title);
+    font-weight: 600;
+}
+
+.heading-xl {
+    font-size: var(--font-size-heading-xl);
+    line-height: var(--line-height-heading-xl);
+    font-family: var(--font-title);
+    font-weight: 600;
+}

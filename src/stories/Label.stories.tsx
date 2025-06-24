@@ -45,4 +45,4 @@ export const Required: Story = {
             Email Address <span className="text-destructive">*</span>
         </Label>
     ),
-} 
+}

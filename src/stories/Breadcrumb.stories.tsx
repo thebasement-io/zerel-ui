@@ -30,7 +30,9 @@ export const Default: Story = {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+                    <BreadcrumbLink href="/components">
+                        Components
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
@@ -54,7 +56,9 @@ export const WithEllipsis: Story = {
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                    <BreadcrumbLink href="/components">Components</BreadcrumbLink>
+                    <BreadcrumbLink href="/components">
+                        Components
+                    </BreadcrumbLink>
                 </BreadcrumbItem>
                 <BreadcrumbSeparator />
                 <BreadcrumbItem>
@@ -79,4 +83,4 @@ export const Simple: Story = {
             </BreadcrumbList>
         </Breadcrumb>
     ),
-} 
+}

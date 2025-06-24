@@ -20,8 +20,8 @@ export const Default: Story = {
         <div>
             <Button
                 onClick={() =>
-                    toast("Event has been created", {
-                        description: "Sunday, December 03, 2023 at 9:00 AM",
+                    toast('Event has been created', {
+                        description: 'Sunday, December 03, 2023 at 9:00 AM',
                     })
                 }
             >
@@ -36,7 +36,7 @@ export const Success: Story = {
     render: () => (
         <div>
             <Button
-                onClick={() => toast.success("Settings saved successfully!")}
+                onClick={() => toast.success('Settings saved successfully!')}
             >
                 Success Toast
             </Button>
@@ -50,7 +50,7 @@ export const Error: Story = {
         <div>
             <Button
                 variant="destructive"
-                onClick={() => toast.error("Something went wrong!")}
+                onClick={() => toast.error('Something went wrong!')}
             >
                 Error Toast
             </Button>
@@ -64,7 +64,7 @@ export const Warning: Story = {
         <div>
             <Button
                 variant="outline"
-                onClick={() => toast.warning("This action cannot be undone")}
+                onClick={() => toast.warning('This action cannot be undone')}
             >
                 Warning Toast
             </Button>
@@ -78,7 +78,8 @@ export const Loading: Story = {
         <div>
             <Button
                 onClick={() => {
-                    const promise = () => new Promise((resolve) => setTimeout(resolve, 2000))
+                    const promise = () =>
+                        new Promise((resolve) => setTimeout(resolve, 2000))
                     toast.promise(promise(), {
                         loading: 'Loading...',
                         success: 'Data has been saved!',
@@ -98,10 +99,10 @@ export const WithAction: Story = {
         <div>
             <Button
                 onClick={() =>
-                    toast("Event has been created", {
+                    toast('Event has been created', {
                         action: {
-                            label: "Undo",
-                            onClick: () => console.log("Undo"),
+                            label: 'Undo',
+                            onClick: () => console.log('Undo'),
                         },
                     })
                 }
@@ -111,4 +112,4 @@ export const WithAction: Story = {
             <Toaster />
         </div>
     ),
-} 
+}

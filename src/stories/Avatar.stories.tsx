@@ -55,4 +55,4 @@ export const Small: Story = {
             <AvatarFallback className="text-xs">CN</AvatarFallback>
         </Avatar>
     ),
-} 
+}

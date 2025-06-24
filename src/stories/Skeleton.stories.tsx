@@ -27,7 +27,7 @@ export const Circle: Story = {
 
 export const Card: Story = {
     render: () => (
-        <div className="space-y-3 w-[300px]">
+        <div className="w-[300px] space-y-3">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-4/5" />
             <Skeleton className="h-4 w-3/5" />
@@ -45,4 +45,4 @@ export const Avatar: Story = {
             </div>
         </div>
     ),
-} 
+}

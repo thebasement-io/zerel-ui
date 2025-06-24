@@ -6,7 +6,7 @@ import {
     CardDescription,
     CardContent,
     CardFooter,
-    CardAction
+    CardAction,
 } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import '@/index.css'
@@ -46,7 +46,9 @@ export const WithAction: Story = {
                 <CardTitle>Notifications</CardTitle>
                 <CardDescription>You have 3 unread messages.</CardDescription>
                 <CardAction>
-                    <Button variant="outline" size="sm">Mark all as read</Button>
+                    <Button variant="outline" size="sm">
+                        Mark all as read
+                    </Button>
                 </CardAction>
             </CardHeader>
             <CardContent>
@@ -75,8 +77,10 @@ export const HeaderOnly: Story = {
         <Card className="w-[350px]">
             <CardHeader>
                 <CardTitle>Settings</CardTitle>
-                <CardDescription>Manage your account settings and preferences.</CardDescription>
+                <CardDescription>
+                    Manage your account settings and preferences.
+                </CardDescription>
             </CardHeader>
         </Card>
     ),
-} 
+}
