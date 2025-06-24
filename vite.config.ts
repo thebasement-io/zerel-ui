@@ -6,6 +6,7 @@ import dts from 'vite-plugin-dts'
 import { libInjectCss } from 'vite-plugin-lib-inject-css'
 import preserveDirectives from 'rollup-preserve-directives'
 import { glob } from 'glob'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -13,6 +14,15 @@ export default defineConfig({
         react(),
         tailwindcss(),
         libInjectCss(),
+        viteStaticCopy({
+            targets: [
+                {
+                    src: 'src/index.css',
+                    rename: 'tailwind.css',
+                    dest: '.',
+                },
+            ],
+        }),
         preserveDirectives(),
         dts({ rollupTypes: true, tsconfigPath: './tsconfig.lib.json' }),
     ],
