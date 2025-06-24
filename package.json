@@ -8,6 +8,9 @@
         "dist"
     ],
     "exports": {
+        "./styles": {
+            "import": "./dist/index.css"
+        },
         "./button": {
             "import": "./dist/button.js",
             "types": "./dist/button.d.ts"
