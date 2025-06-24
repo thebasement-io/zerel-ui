@@ -35,7 +35,7 @@
     --color-accent-foreground: hsl(var(--neutral-10));
     --color-popover: hsla(var(--neutral-20));
     --color-popover-foreground: hsl(var(--neutral-80));
-    --color-card: hsl(var(--neutral-20));
+    --color-card: hsl(var(--neutral-10));
     --color-card-foreground: hsl(var(--neutral-100));
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
