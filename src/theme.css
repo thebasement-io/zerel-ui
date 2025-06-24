@@ -3,8 +3,8 @@
     --font-mono:
         'Roboto Mono', 'Roboto Mono Fallback', 'Courier New', 'Courier',
         monospace;
-    --color-border: hsl(var(--neutral-30));
-    --color-input: hsl(var(--neutral-20));
+    --color-border: hsl(var(--neutral-50));
+    --color-input: hsl(var(--neutral-10));
     --color-ring: hsl(var(--neutral-50));
     --color-background: hsl(var(--neutral-10));
     --color-foreground: hsl(var(--neutral-100));
