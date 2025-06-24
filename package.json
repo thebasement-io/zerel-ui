@@ -8,9 +8,6 @@
         "dist"
     ],
     "exports": {
-        "./theme.css": {
-            "import": "./dist/theme.css"
-        },
         "./button": {
             "import": "./dist/button.js",
             "types": "./dist/button.d.ts"
@@ -190,7 +187,8 @@
         "./lib/use-mobile": {
             "import": "./dist/lib/use-mobile.js",
             "types": "./dist/lib/use-mobile.d.ts"
-        }
+        },
+        "./lib/theme.css": "./dist/theme.css"
     },
     "scripts": {
         "lint": "eslint .",
