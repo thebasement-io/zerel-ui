@@ -17,6 +17,7 @@
 /* Adding new styles to tailwind */
 @theme inline {
     --font-sans: var(--font-paragraph);
+	--font-title: var(--font-title);
     --font-mono:
         'Roboto Mono', 'Roboto Mono Fallback', 'Courier New', 'Courier',
         monospace;
