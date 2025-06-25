@@ -1,3 +1,4 @@
+/* Overwriting styles in tailwind */
 @theme {
 	--color-white: hsl(var(--neutral-10));
 	--color-black: hsl(var(--neutral-100));
@@ -13,6 +14,7 @@
 	--color-neutral-900: hsl(var(--neutral-100));
 }
 
+/* Adding new styles to tailwind */
 @theme inline {
     --font-sans: var(--font-paragraph);
     --font-mono:
@@ -44,6 +46,7 @@
     --animation-accordion-up: accordion-up 0.2s ease-out;
 }
 
+/* DS reference colors */
 :root {
     --primary: 226, 70.7%, 40.2%;
     --primary-surface: 226, 100%, 93.9%;
@@ -117,6 +120,7 @@
     --box-shadow-2: 2px 4px 32px 0px rgba(0, 0, 0, 0.05);
 }
 
+/* Specific components from DS */
 @layer components {
     .shadow {
         box-shadow: var(--box-shadow);
