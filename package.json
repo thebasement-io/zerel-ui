@@ -195,7 +195,7 @@
         "preview": "vite preview",
         "vite": "vite dev",
         "format": "prettier --write .",
-        "dev": "storybook dev -p 3000 --no-open",
+        "dev": "storybook dev -p 4004 --no-open",
         "build": "vite build",
         "build-storybook": "storybook build",
         "publish-patch": "npm run build && npm version patch && npm publish"
