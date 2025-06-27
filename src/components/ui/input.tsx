@@ -2,7 +2,27 @@ import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
-function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
+type InputProps = React.ComponentProps<'input'> & {
+	mask?: (value: string) => string;
+};
+
+function Input({ className, type, mask, onChange, ...props }: InputProps) {
+	function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+		if (mask) {
+			const maskedValue = mask(e.target.value);
+			const newEvent = {
+				...e,
+				target: {
+					...e.target,
+					value: maskedValue,
+				},
+			};
+			onChange?.(newEvent as React.ChangeEvent<HTMLInputElement>);
+		} else {
+			onChange?.(e);
+		}
+	}
+
 	return (
 		<input
 			type={type}
@@ -13,6 +33,7 @@ function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
 				'aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive',
 				className,
 			)}
+			onChange={handleChange}
 			{...props}
 		/>
 	)

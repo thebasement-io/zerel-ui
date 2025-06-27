@@ -88,6 +88,10 @@
             "import": "./dist/input-otp.js",
             "types": "./dist/input-otp.d.ts"
         },
+        "./input-mask": {
+            "import": "./dist/input-mask.js",
+            "types": "./dist/input-mask.d.ts"
+        },
         "./label": {
             "import": "./dist/label.js",
             "types": "./dist/label.d.ts"
