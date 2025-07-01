@@ -24,21 +24,40 @@ yarn add zerel-ui
 pnpm add zerel-ui
 ```
 
+## Setup
+
+Add the following snippet to your main css entrypoint
+
+```css
+/* source the zerel-ui's module to tailwind */
+@source '../../node_modules/zerel-ui/dist';
+@import 'tailwindcss';
+@import 'tw-animate-css';
+/* import the theme you want to use 'alfil/zerel' */
+@import 'zerel-ui/lib/theme-alfil.css';
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+```
+
 ## Usage
 
 Import and use components in your React application:
 
 ```tsx
-import { Button, Card, Badge } from 'zerel-ui'
+import { Button } from 'zerel-ui/button'
 
 function App() {
     return (
         <div>
-            <Card>
-                <h1>Hello Zerel UI!</h1>
-                <Button variant="default">Click me</Button>
-                <Badge variant="secondary">New</Badge>
-            </Card>
+            <Button variant="default">Click me</Button>
         </div>
     )
 }
@@ -66,7 +85,7 @@ You need to have [pnpm](https://pnpm.io/installation) installed on your machine.
 ### `pnpm run dev`
 
 Runs Storybook in development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
 ### `pnpm run build`
 
