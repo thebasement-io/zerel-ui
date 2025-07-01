@@ -185,12 +185,16 @@
             "types": "./dist/tooltip.d.ts"
         },
         "./lib/utils": {
-            "import": "./dist/lib/utils.js",
-            "types": "./dist/lib/utils.d.ts"
+            "import": "./dist/utils.js",
+            "types": "./dist/utils.d.ts"
+        },
+        "./lib/use-zform": {
+            "import": "./dist/use-zform.js",
+            "types": "./dist/use-zform.d.ts"
         },
         "./lib/use-mobile": {
-            "import": "./dist/lib/use-mobile.js",
-            "types": "./dist/lib/use-mobile.d.ts"
+            "import": "./dist/use-mobile.js",
+            "types": "./dist/use-mobile.d.ts"
         },
         "./lib/theme.css": "./dist/theme.css"
     },

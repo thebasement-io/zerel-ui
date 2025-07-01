@@ -43,8 +43,9 @@ export default defineConfig({
                     ]),
                 ),
                 // Also include utilities
-                'lib/utils': resolve(__dirname, 'src/lib/utils.ts'),
-                'lib/use-mobile': resolve(__dirname, 'src/hooks/use-mobile.ts'),
+                utils: resolve(__dirname, 'src/lib/utils.ts'),
+                'use-mobile': resolve(__dirname, 'src/hooks/use-mobile.ts'),
+                'use-zform': resolve(__dirname, 'src/hooks/use-zform.ts'),
             },
             name: 'ZerelUI',
             formats: ['es'],
