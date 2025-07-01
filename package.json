@@ -196,7 +196,8 @@
             "import": "./dist/use-mobile.js",
             "types": "./dist/use-mobile.d.ts"
         },
-        "./lib/theme.css": "./dist/theme.css"
+        "./lib/theme-alfil.css": "./dist/theme-alfil.css"
+        "./lib/theme-zerel.css": "./dist/theme-zerel.css"
     },
     "scripts": {
         "lint": "eslint .",

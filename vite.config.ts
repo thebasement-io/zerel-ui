@@ -15,8 +15,13 @@ export default defineConfig({
         viteStaticCopy({
             targets: [
                 {
-                    src: 'src/theme.css',
-                    rename: 'theme.css',
+                    src: 'src/theme-alfil.css',
+                    rename: 'theme-alfil.css',
+                    dest: '.',
+                },
+                {
+                    src: 'src/theme-zerel.css',
+                    rename: 'theme-zerel.css',
                     dest: '.',
                 },
             ],
