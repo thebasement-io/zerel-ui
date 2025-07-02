@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+@import './theme-zerel.css';
+
 @layer base {
     * {
         @apply border-border outline-ring/50;
@@ -11,4 +13,3 @@
     }
 }
 
-@import './theme-zerel.css';

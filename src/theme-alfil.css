@@ -48,6 +48,15 @@
     --radius-sm: calc(var(--radius) - 4px);
     --animation-accordion-down: accordion-down 0.2s ease-out;
     --animation-accordion-up: accordion-up 0.2s ease-out;
+
+	--sidebar: hsl(var(--neutral-10));
+    --sidebar-foreground: hsl(var(--neutral-100));
+    --sidebar-primary: hsl(var(--primary));
+    --sidebar-primary-foreground: hsl(var(--primary));
+    --sidebar-accent: hsl(var(--primary-surface));
+    --sidebar-accent-foreground: hsl(var(--neutral-100));
+    --sidebar-border: hsl(var(--neutral-50));
+    --sidebar-ring: hsl(var(--neutral-50));
 }
 
 /* DS reference colors */
