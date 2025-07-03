@@ -44,20 +44,17 @@
     --color-popover-foreground: hsl(var(--neutral-80));
     --color-card: hsl(var(--neutral-10));
     --color-card-foreground: hsl(var(--neutral-100));
+	--color-sidebar: hsl(var(--neutral-500));
+    --color-sidebar-foreground: hsl(var(--neutral-10));
+    --color-sidebar-accent: hsl(var(--primary));
+    --color-sidebar-accent-foreground: hsl(var(--neutral-10));
+    --color-sidebar-border: transparent;
+    --color-sidebar-ring: transparent;
     --radius-lg: var(--radius);
     --radius-md: calc(var(--radius) - 2px);
     --radius-sm: calc(var(--radius) - 4px);
     --animation-accordion-down: accordion-down 0.2s ease-out;
     --animation-accordion-up: accordion-up 0.2s ease-out;
-
-	--sidebar: hsl(var(--neutral-500));
-    --sidebar-foreground: hsl(var(--neutral-10));
-    --sidebar-primary: hsl(var(--primary-surface));
-    --sidebar-primary-foreground: hsl(var(--primary));
-    --sidebar-accent: hsl(var(--primary-surface));
-    --sidebar-accent-foreground: hsl(var(--neutral-100));
-    --sidebar-border: hsl(var(--neutral-50));
-    --sidebar-ring: hsl(var(--neutral-50));
 }
 
 /* DS reference colors */
@@ -103,7 +100,7 @@
     --neutral-80: 0, 0%, 36.9%;
     --neutral-90: 0, 0%, 30.2%;
     --neutral-100: 0, 0%, 26.7%;
-	--neutral-500: 0 0% 27%
+	--neutral-500: 0, 0%, 24%;
 
     --font-title: 'Rubik', sans-serif;
     --font-paragraph: 'Roboto', sans-serif;

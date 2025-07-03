@@ -23,7 +23,7 @@ export const Default: Story = {
 							<SidebarMenu>
 								{items.map((item) => (
 									<SidebarMenuItem key={item.title}>
-										<SidebarMenuButton asChild>
+										<SidebarMenuButton isActive={item.active} asChild>
 											<a href={item.url}>
 												<item.icon />
 												<span>{item.title}</span>
@@ -49,6 +49,7 @@ const items = [
 		title: "Inbox",
 		url: "#",
 		icon: Inbox,
+		active: true
 	},
 	{
 		title: "Calendar",
