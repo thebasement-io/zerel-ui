@@ -1,7 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@import './theme-zerel.css';
+/* @import './theme-zerel.css'; */
+@import './theme-alfil.css';
 
 @layer base {
     * {

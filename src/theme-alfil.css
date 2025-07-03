@@ -40,7 +40,7 @@
     --color-muted-foreground: hsl(var(--neutral-50));
     --color-accent: hsl(var(--primary-surface));
     --color-accent-foreground: hsl(var(--neutral-100));
-    --color-popover: hsla(var(--neutral-20));
+    --color-popover: hsla(var(--neutral-10));
     --color-popover-foreground: hsl(var(--neutral-80));
     --color-card: hsl(var(--neutral-10));
     --color-card-foreground: hsl(var(--neutral-100));
