@@ -80,3 +80,5 @@ export function useZForm<State>(
         pending,
     }
 }
+
+export { withZForm } from '@/components/with-zform'
