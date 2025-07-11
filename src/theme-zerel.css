@@ -40,6 +40,12 @@
     --color-muted-foreground: hsl(var(--neutral-50));
     --color-accent: hsl(var(--primary-surface));
     --color-accent-foreground: hsl(var(--neutral-100));
+	--color-warning: hsl(var(--warning));
+	--color-warning-foreground: hsl(var(--neutral-10));
+	--color-success: hsl(var(--success));
+	--color-success-foreground: hsl(var(--neutral-10));
+	--color-info: hsl(var(--informative));
+	--color-info-foreground: hsl(var(--neutral-10));
     --color-popover: hsla(var(--neutral-20));
     --color-popover-foreground: hsl(var(--neutral-80));
     --color-card: hsl(var(--neutral-10));
