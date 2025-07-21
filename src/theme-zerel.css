@@ -46,8 +46,8 @@
 	--color-success-foreground: hsl(var(--neutral-10));
 	--color-info: hsl(var(--informative));
 	--color-info-foreground: hsl(var(--neutral-10));
-    --color-popover: hsla(var(--neutral-20));
-    --color-popover-foreground: hsl(var(--neutral-80));
+    --color-popover: hsla(var(--neutral-10));
+    --color-popover-foreground: hsl(var(--neutral-100));
     --color-card: hsl(var(--neutral-10));
     --color-card-foreground: hsl(var(--neutral-100));
 	--color-sidebar: hsl(var(--neutral-500));
