@@ -100,6 +100,10 @@
             "import": "./dist/menubar.js",
             "types": "./dist/menubar.d.ts"
         },
+        "./multi-level-tree": {
+            "import": "./dist/multi-level-tree.js",
+            "types": "./dist/multi-level-tree.d.ts"
+        },
         "./navigation-menu": {
             "import": "./dist/navigation-menu.js",
             "types": "./dist/navigation-menu.d.ts"
