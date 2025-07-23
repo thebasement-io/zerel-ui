@@ -62,10 +62,7 @@ const getIcon = (value: number): JSX.Element => {
     return <IconComponent className="h-4 w-4" />
 }
 
-export default function MultiLevelTree({
-    hierarchyData,
-    name,
-}: MultiLevelTreeProps) {
+export function MultiLevelTree({ hierarchyData, name }: MultiLevelTreeProps) {
     const [currentDepth, setCurrentDepth] = useState<number>(-1) // -1 means root level (before any data)
     const [selectedItem, setSelectedItem] = useState<TreeNode | null>(null)
     const [navigationPath, setNavigationPath] = useState<number[]>([]) // Track the path of navigation
