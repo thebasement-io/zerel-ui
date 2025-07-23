@@ -19,30 +19,19 @@ import {
 import { Separator } from './separator'
 import { Badge } from './badge'
 
-export type Hierarchy = {
+export type TreeNode = {
     id: number
     label: string
-    id_parent: number
+    id_parent: number | null
     depth: number
-    full_path: string
-    parent_full_path: string
-    id_path: string
-    parent_id_path: string
-}
-
-export type HierarchyResponse = {
-    data: Hierarchy[]
-    count: number
-    total: number
-    page: number
-    pageSize: number
+    id_path: number[]
 }
 
 export interface IconTreeMap {
     [key: string]: LucideIcon
 }
-export type HierarchyWithChildren = Hierarchy & {
-    children: HierarchyWithChildren[]
+export type TreeNodeWithChildren = TreeNode & {
+    children: TreeNodeWithChildren[]
 }
 
 export type BreadcrumbItem = {
@@ -53,14 +42,14 @@ export type BreadcrumbItem = {
 }
 
 export type TreeStructure = {
-    treeMap: Map<number, HierarchyWithChildren>
-    itemsByDepth: Map<number, Hierarchy[]>
+    treeMap: Map<number, TreeNodeWithChildren>
+    itemsByDepth: Map<number, TreeNode[]>
     minDepth: number
     maxDepth: number
 }
 
 export type MultiLevelTreeProps = {
-    hierarchyData: Hierarchy[]
+    hierarchyData: TreeNode[]
     name: string
     defaultValue?: string
 }
@@ -78,14 +67,14 @@ export default function MultiLevelTree({
     name,
 }: MultiLevelTreeProps) {
     const [currentDepth, setCurrentDepth] = useState<number>(-1) // -1 means root level (before any data)
-    const [selectedItem, setSelectedItem] = useState<Hierarchy | null>(null)
+    const [selectedItem, setSelectedItem] = useState<TreeNode | null>(null)
     const [navigationPath, setNavigationPath] = useState<number[]>([]) // Track the path of navigation
 
     // Build tree structure from flat data and organize by depth
     const { treeMap, itemsByDepth, minDepth, maxDepth }: TreeStructure =
         useMemo(() => {
-            const treeMap = new Map<number, HierarchyWithChildren>()
-            const itemsByDepth = new Map<number, Hierarchy[]>()
+            const treeMap = new Map<number, TreeNodeWithChildren>()
+            const itemsByDepth = new Map<number, TreeNode[]>()
 
             for (const item of hierarchyData) {
                 treeMap.set(item.id, { ...item, children: [] })
@@ -112,7 +101,7 @@ export default function MultiLevelTree({
 
     // Auto-select item based on current depth and navigation path
     useEffect(() => {
-        let item: HierarchyWithChildren | null = null
+        let item: TreeNodeWithChildren | null = null
         if (navigationPath.length) {
             item =
                 treeMap.get(navigationPath[navigationPath.length - 1]) || null
@@ -125,7 +114,7 @@ export default function MultiLevelTree({
     }, [currentDepth, navigationPath, itemsByDepth, minDepth, treeMap])
 
     // Get current level items based on current depth and navigation path
-    const currentItems: HierarchyWithChildren[] = useMemo(() => {
+    const currentItems: TreeNodeWithChildren[] = useMemo(() => {
         if (currentDepth === -1) {
             // Root level: show items of minimum depth
             const items = itemsByDepth.get(minDepth) || []
@@ -167,8 +156,7 @@ export default function MultiLevelTree({
 
             // Also add all IDs from the id_path to ensure breadcrumb navigation works
             try {
-                const idPath: number[] = JSON.parse(item.id_path)
-                idPath.forEach((id) => accessible.add(id))
+                item.id_path.forEach((id) => accessible.add(id))
             } catch (error) {
                 console.error('Error parsing id_path:', error)
             }
@@ -193,7 +181,7 @@ export default function MultiLevelTree({
         }) as BreadcrumbItem[]
     }, [navigationPath, treeMap, selectedItem])
 
-    const handleItemClick = (item: HierarchyWithChildren): void => {
+    const handleItemClick = (item: TreeNodeWithChildren): void => {
         const isLeaf = !item.children || item.children.length === 0
         if (isLeaf || currentDepth + 1 > maxDepth) {
             setSelectedItem(item)
@@ -419,7 +407,7 @@ export default function MultiLevelTree({
                                 </div>
                                 <div className="grid gap-3">
                                     {currentItems.map(
-                                        (item: HierarchyWithChildren) => {
+                                        (item: TreeNodeWithChildren) => {
                                             const hasChildren =
                                                 item.children &&
                                                 item.children.length > 0
