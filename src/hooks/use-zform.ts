@@ -1,4 +1,4 @@
-import { useActionState, useEffect, useState } from 'react'
+import { useActionState, useCallback, useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 
 export type FormState<T> = {
@@ -10,12 +10,18 @@ export type FormState<T> = {
     pending?: boolean
     toast?: {
         message?: string | undefined
-        type?: 'success' | 'error' | 'info' | 'warning' | undefined
+        type?: 'success' | 'error' | undefined
     }
     errors?: {
         fields?: {
             [key in keyof T]?: string[] | undefined
         }
+    }
+}
+
+export type FormConfig = {
+    toast?: {
+        loadingMessage?: string
     }
 }
 
@@ -37,30 +43,10 @@ type PayloadedFormAction<State> = (
     payload: FormData,
 ) => Awaited<DynamicState<State>> | Promise<DynamicState<State>>
 
-function toastMapper<T>(data: FormState<T>['toast']) {
-    if (!data || !data.message) return undefined
-    switch (data.type) {
-        case 'success':
-            toast.success(data.message)
-            break
-        case 'error':
-            toast.error(data.message)
-            break
-        case 'info':
-            toast.info(data.message)
-            break
-        case 'warning':
-            toast.warning(data.message)
-            break
-        default:
-            toast(data.message)
-            break
-    }
-}
-
 export function useZForm<State>(
     action: FormAction<State>,
     initialState: DynamicState<State>,
+    config?: FormConfig,
 ): FormState<State> {
     const [state, setState] = useState<DynamicState<State>>({
         data: initialState.data,
@@ -72,6 +58,36 @@ export function useZForm<State>(
         FormData
     >(action, state)
 
+    const toastResolverRes = useRef<
+        ((data: DynamicState<State>) => void) | null
+    >(null)
+    const toastResolverRej = useRef<
+        ((data: DynamicState<State>) => void) | null
+    >(null)
+    const formSubmitted: () => Promise<DynamicState<State>> =
+        useCallback(async () => {
+            return new Promise((resolve, reject) => {
+                toastResolverRes.current = resolve
+                toastResolverRej.current = reject
+            })
+        }, [])
+
+    useEffect(() => {
+        if (pending) {
+            toast.promise(formSubmitted, {
+                loading: config?.toast?.loadingMessage || 'Submitting form...',
+                success: (data) => {
+                    if (!data.toast) return 'Form submitted successfully'
+                    return data.toast.message
+                },
+                error: (data) => {
+                    if (!data.toast) return 'Form submission failed'
+                    return data.toast.message || data
+                },
+            })
+        }
+    }, [pending, state.toast, formSubmitted, config])
+
     useEffect(() => {
         if (payload) {
             setState((prevState) => ({
@@ -79,7 +95,11 @@ export function useZForm<State>(
                 ...payload,
             }))
             if (payload.toast) {
-                toastMapper(payload.toast)
+                if (payload.toast.type === 'error')
+                    toastResolverRej.current?.(payload)
+                else toastResolverRes.current?.(payload)
+                toastResolverRes.current = null
+                toastResolverRej.current = null
             }
         }
     }, [payload, setState])

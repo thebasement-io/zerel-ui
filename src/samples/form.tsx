@@ -17,7 +17,7 @@ type SubmitLogin = (
 
 const submitLogin: SubmitLogin = async (_, formData) => {
     // Simulate a login request
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    await new Promise((resolve) => setTimeout(resolve, 3000))
     const email = formData.get('email') as string
     const password = formData.get('password') as string
 
