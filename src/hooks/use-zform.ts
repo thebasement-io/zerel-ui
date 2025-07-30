@@ -1,4 +1,5 @@
 import { useActionState, useEffect, useState } from 'react'
+import { toast } from 'sonner'
 
 export type FormState<T> = {
     formProps: {
@@ -12,22 +13,16 @@ export type FormState<T> = {
         type?: 'success' | 'error' | 'info' | 'warning' | undefined
     }
     errors?: {
-        message?: string | undefined
         fields?: {
             [key in keyof T]?: string[] | undefined
         }
     }
 }
 
-export type FormConfig = {
-    toast:
-        | boolean
-        | {
-              loading?: string
-          }
-}
-
-export type DynamicState<State> = Pick<FormState<State>, 'data' | 'errors'>
+export type DynamicState<State> = Pick<
+    FormState<State>,
+    'data' | 'errors' | 'toast'
+>
 
 export type FormAction<State> =
     | PlainFormAction<State>
@@ -41,6 +36,27 @@ type PayloadedFormAction<State> = (
     data: Awaited<DynamicState<State>>,
     payload: FormData,
 ) => Awaited<DynamicState<State>> | Promise<DynamicState<State>>
+
+function toastMapper<T>(data: FormState<T>['toast']) {
+    if (!data || !data.message) return undefined
+    switch (data.type) {
+        case 'success':
+            toast.success(data.message)
+            break
+        case 'error':
+            toast.error(data.message)
+            break
+        case 'info':
+            toast.info(data.message)
+            break
+        case 'warning':
+            toast.warning(data.message)
+            break
+        default:
+            toast(data.message)
+            break
+    }
+}
 
 export function useZForm<State>(
     action: FormAction<State>,
@@ -62,6 +78,9 @@ export function useZForm<State>(
                 ...prevState,
                 ...payload,
             }))
+            if (payload.toast) {
+                toastMapper(payload.toast)
+            }
         }
     }, [payload, setState])
 
