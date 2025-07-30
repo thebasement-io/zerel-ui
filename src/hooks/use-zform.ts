@@ -7,12 +7,24 @@ export type FormState<T> = {
     }
     data?: T
     pending?: boolean
+    toast?: {
+        message?: string | undefined
+        type?: 'success' | 'error' | 'info' | 'warning' | undefined
+    }
     errors?: {
         message?: string | undefined
         fields?: {
             [key in keyof T]?: string[] | undefined
         }
     }
+}
+
+export type FormConfig = {
+    toast:
+        | boolean
+        | {
+              loading?: string
+          }
 }
 
 export type DynamicState<State> = Pick<FormState<State>, 'data' | 'errors'>
@@ -57,18 +69,23 @@ export function useZForm<State>(
         const { name, value } = e.target
         if (!name || value === undefined) return
         const typedName = name as keyof State
-        const fieldErrors = state.errors?.fields?.[typedName] || []
-        if (!fieldErrors.length) return
-        setState((prevState) => ({
-            ...prevState,
-            errors: {
-                ...prevState.errors,
-                fields: {
-                    ...(prevState.errors || {})?.fields,
-                    [typedName]: [],
+        setState((prevState) => {
+            const mergedData = {
+                ...(prevState.data || {}),
+                [typedName]: value,
+            } as State
+            return {
+                ...prevState,
+                data: mergedData,
+                errors: {
+                    ...prevState.errors,
+                    fields: {
+                        ...(prevState.errors || {})?.fields,
+                        [typedName]: [],
+                    },
                 },
-            },
-        }))
+            }
+        })
     }
 
     return {
