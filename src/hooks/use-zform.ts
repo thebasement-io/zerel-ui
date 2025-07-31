@@ -76,8 +76,12 @@ export function useZForm<State>(
 
     useEffect(() => {
         if (pending && config?.toast) {
+            const message =
+                config.toast === true
+                    ? 'Submitting form...'
+                    : config.toast.loadingMessage || 'Submitting form...'
             toast.promise(formSubmitted, {
-                loading: config?.toast?.loadingMessage || 'Submitting form...',
+                loading: message || 'Submitting form...',
                 success: (data) => {
                     if (!data.toast) return 'Form submitted successfully'
                     return data.toast.message
