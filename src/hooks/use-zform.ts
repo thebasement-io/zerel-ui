@@ -10,7 +10,7 @@ export type FormState<T> = {
     pending?: boolean
     toast?: {
         message?: string | undefined
-        type?: 'success' | 'error' | undefined
+        type?: 'success' | 'error' | 'info' | 'warning' | undefined
     }
     errors?: {
         fields?: {
@@ -45,6 +45,22 @@ type PayloadedFormAction<State> = (
     payload: FormData,
 ) => Awaited<DynamicState<State>> | Promise<DynamicState<State>>
 
+function toastMapper<T>(data: DynamicState<T>['toast']) {
+    if (!data?.message) return
+    switch (data.type) {
+        case 'success':
+            return toast.success(data.message)
+        case 'error':
+            return toast.error(data.message)
+        case 'info':
+            return toast.info(data.message)
+        case 'warning':
+            return toast.warning(data.message)
+        default:
+            return toast(data.message)
+    }
+}
+
 export function useZForm<State>(
     action: FormAction<State>,
     initialState: DynamicState<State>,
@@ -53,6 +69,7 @@ export function useZForm<State>(
     const [state, setState] = useState<DynamicState<State>>({
         data: initialState.data,
         errors: initialState.errors || {},
+        toast: initialState.toast || {},
     })
 
     const [payload, formAction, pending] = useActionState<
@@ -75,23 +92,26 @@ export function useZForm<State>(
         }, [])
 
     useEffect(() => {
-        if (pending && config?.toast) {
-            const message =
-                config.toast === true
-                    ? 'Submitting form...'
-                    : config.toast.loadingMessage || 'Submitting form...'
-            toast.promise(formSubmitted, {
-                loading: message || 'Submitting form...',
-                success: (data) => {
-                    if (!data.toast) return 'Form submitted successfully'
-                    return data.toast.message
-                },
-                error: (data) => {
-                    if (!data.toast) return 'Form submission failed'
-                    return data.toast.message || data
-                },
-            })
+        if (!pending) return
+        if (!config?.toast) {
+            toastMapper(state.toast)
+            return
         }
+        const message =
+            config.toast === true
+                ? 'Submitting form...'
+                : config.toast.loadingMessage || 'Submitting form...'
+        toast.promise(formSubmitted, {
+            loading: message || 'Submitting form...',
+            success: (data) => {
+                if (!data.toast) return 'Form submitted successfully'
+                return data.toast.message
+            },
+            error: (data) => {
+                if (!data.toast) return 'Form submission failed'
+                return data.toast.message || data
+            },
+        })
     }, [pending, state.toast, formSubmitted, config])
 
     useEffect(() => {
