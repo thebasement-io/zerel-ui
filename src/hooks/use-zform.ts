@@ -20,9 +20,11 @@ export type FormState<T> = {
 }
 
 export type FormConfig = {
-    toast?: {
-        loadingMessage?: string
-    }
+    toast?:
+        | boolean
+        | {
+              loadingMessage?: string
+          }
 }
 
 export type DynamicState<State> = Pick<
@@ -73,7 +75,7 @@ export function useZForm<State>(
         }, [])
 
     useEffect(() => {
-        if (pending) {
+        if (pending && config?.toast) {
             toast.promise(formSubmitted, {
                 loading: config?.toast?.loadingMessage || 'Submitting form...',
                 success: (data) => {
