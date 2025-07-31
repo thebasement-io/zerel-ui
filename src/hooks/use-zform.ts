@@ -1,5 +1,5 @@
 import { useActionState, useCallback, useEffect, useRef, useState } from 'react'
-import { toast } from 'sonner'
+import { toast } from '../components/ui/sonner'
 
 export type FormState<T> = {
     formProps: {
@@ -93,10 +93,7 @@ export function useZForm<State>(
 
     useEffect(() => {
         if (!pending) return
-        if (!config?.toast) {
-            toastMapper(state.toast)
-            return
-        }
+        if (!config?.toast) return
         const message =
             config.toast === true
                 ? 'Submitting form...'
@@ -121,6 +118,10 @@ export function useZForm<State>(
                 ...payload,
             }))
             if (payload.toast) {
+                if (!config?.toast) {
+                    toastMapper(payload.toast)
+                    return
+                }
                 if (payload.toast.type === 'error')
                     toastResolverRej.current?.(payload)
                 else toastResolverRes.current?.(payload)
