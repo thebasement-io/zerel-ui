@@ -80,6 +80,10 @@
             "import": "./dist/dropdown-menu.js",
             "types": "./dist/dropdown-menu.d.ts"
         },
+        "./error-line": {
+            "import": "./dist/error-line.js",
+            "types": "./dist/error-line.d.ts"
+        },
         "./input": {
             "import": "./dist/input.js",
             "types": "./dist/input.d.ts"

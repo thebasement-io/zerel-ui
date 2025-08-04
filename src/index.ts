@@ -272,3 +272,6 @@ export {
 
 // Toast component
 export { Toaster } from '@/components/ui/sonner'
+
+// Error line component
+export { ErrorLine } from '@/components/ui/error-line'
