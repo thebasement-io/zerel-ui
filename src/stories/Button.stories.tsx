@@ -76,6 +76,13 @@ export const Icon: Story = {
     },
 }
 
+export const Disabled: Story = {
+    args: {
+        children: 'Disabled',
+        disabled: true,
+    },
+}
+
 export const Loading: Story = {
     args: {
         children: 'Not Loading',

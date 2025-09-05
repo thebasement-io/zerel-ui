@@ -50,14 +50,14 @@ function Button({
     ...props
 }: ButtonProps) {
     const Comp = asChild ? Slot : 'button'
-    const { children, ...otherProps } = props
+    const { children, disabled, ...otherProps } = props
 
     return (
         <Comp
             data-slot="button"
             className={cn(buttonVariants({ variant, size, className }))}
             {...otherProps}
-            disabled={loading ? true : undefined}
+            disabled={disabled || loading ? true : undefined}
         >
             {loading ? (
                 <span className="flex items-center gap-2">
