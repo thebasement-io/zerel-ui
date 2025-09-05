@@ -1,24 +1,24 @@
 /* Overwriting styles in tailwind */
 @theme {
-	--color-white: hsl(var(--neutral-10));
-	--color-black: hsl(var(--neutral-100));
-	--color-neutral-50: hsl(var(--neutral-10));
-	--color-neutral-100: hsl(var(--neutral-20));
-	--color-neutral-200: hsl(var(--neutral-30));
-	--color-neutral-300: hsl(var(--neutral-40));
-	--color-neutral-400: hsl(var(--neutral-50));
-	--color-neutral-500: hsl(var(--neutral-60));
-	--color-neutral-600: hsl(var(--neutral-70));
-	--color-neutral-700: hsl(var(--neutral-80));
-	--color-neutral-800: hsl(var(--neutral-90));
-	--color-neutral-900: hsl(var(--neutral-100));
-	--color-neutral-950: hsl(var(--neutral-500));
+    --color-white: hsl(var(--neutral-10));
+    --color-black: hsl(var(--neutral-100));
+    --color-neutral-50: hsl(var(--neutral-10));
+    --color-neutral-100: hsl(var(--neutral-20));
+    --color-neutral-200: hsl(var(--neutral-30));
+    --color-neutral-300: hsl(var(--neutral-40));
+    --color-neutral-400: hsl(var(--neutral-50));
+    --color-neutral-500: hsl(var(--neutral-60));
+    --color-neutral-600: hsl(var(--neutral-70));
+    --color-neutral-700: hsl(var(--neutral-80));
+    --color-neutral-800: hsl(var(--neutral-90));
+    --color-neutral-900: hsl(var(--neutral-100));
+    --color-neutral-950: hsl(var(--neutral-500));
 }
 
 /* Adding new styles to tailwind */
 @theme inline {
     --font-sans: var(--font-paragraph);
-	--font-title: var(--font-title);
+    --font-title: var(--font-title);
     --font-mono:
         'Roboto Mono', 'Roboto Mono Fallback', 'Courier New', 'Courier',
         monospace;
@@ -29,9 +29,9 @@
     --color-foreground: hsl(var(--neutral-100));
     --color-primary: hsl(var(--primary));
     --color-primary-foreground: hsl(var(--neutral-10));
-	--color-primary-hover: hsl(var(--primary-hover));
-	--color-primary-pressed: hsl(var(--primary-pressed));
-	--color-primary-focus: hsl(var(--primary-focus));
+    --color-primary-hover: hsl(var(--primary-hover));
+    --color-primary-pressed: hsl(var(--primary-pressed));
+    --color-primary-focus: hsl(var(--primary-focus));
     --color-secondary: hsl(var(--primary-surface));
     --color-secondary-foreground: hsl(var(--primary));
     --color-destructive: hsl(var(--destructive));
@@ -40,12 +40,12 @@
     --color-muted-foreground: hsl(var(--neutral-50));
     --color-accent: hsl(var(--primary-surface));
     --color-accent-foreground: hsl(var(--neutral-100));
-	--color-warning: hsl(var(--warning));
-	--color-warning-foreground: hsl(var(--neutral-10));
-	--color-success: hsl(var(--success));
-	--color-success-foreground: hsl(var(--neutral-10));
-	--color-info: hsl(var(--informative));
-	--color-info-foreground: hsl(var(--neutral-10));
+    --color-warning: hsl(var(--warning));
+    --color-warning-foreground: hsl(var(--neutral-10));
+    --color-success: hsl(var(--success));
+    --color-success-foreground: hsl(var(--neutral-10));
+    --color-info: hsl(var(--informative));
+    --color-info-foreground: hsl(var(--neutral-10));
     --color-popover: hsla(var(--neutral-10));
     --color-popover-foreground: hsl(var(--neutral-100));
     --color-card: hsl(var(--neutral-10));
@@ -55,7 +55,7 @@
     --radius-sm: calc(var(--radius) - 4px);
     --animation-accordion-down: accordion-down 0.2s ease-out;
     --animation-accordion-up: accordion-up 0.2s ease-out;
-	--color-sidebar: hsl(var(--neutral-500));
+    --color-sidebar: hsl(var(--neutral-500));
     --color-sidebar-foreground: hsl(var(--neutral-10));
     --color-sidebar-accent: hsl(var(--primary));
     --color-sidebar-accent-foreground: hsl(var(--neutral-10));
@@ -106,7 +106,7 @@
     --neutral-80: 0, 0%, 36.9%;
     --neutral-90: 0, 0%, 30.2%;
     --neutral-100: 0, 0%, 26.7%;
-	--neutral-500: 0, 0%, 24%;
+    --neutral-500: 0, 0%, 24%;
 
     --font-title: 'Rubik', sans-serif;
     --font-paragraph: 'Roboto', sans-serif;
