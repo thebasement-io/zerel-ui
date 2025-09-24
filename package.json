@@ -1,7 +1,7 @@
 {
     "name": "zerel-ui",
     "private": false,
-    "version": "0.5.9",
+    "version": "0.6.0",
     "author": "Felipe Afonso",
     "type": "module",
     "files": [
