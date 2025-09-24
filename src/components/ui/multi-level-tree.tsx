@@ -12,7 +12,7 @@ export type TreeNode = {
     label: string
     id_parent: number | string | null
     depth: number
-    id_path: number | string[]
+    id_path: Array<number | string>
     badges?: Array<{
         icon: ElementType
         label: string
@@ -211,7 +211,7 @@ const HierarchyItem = ({
 
 export type HierarchySelectorProps = {
     name: string
-    defaultValue?: number
+    defaultValue?: number | string
     data: TreeNode[]
     className?: string
 }
