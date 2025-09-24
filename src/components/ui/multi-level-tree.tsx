@@ -84,13 +84,15 @@ const HierarchyItemWithChildren = ({
     selectedId,
     onSelect,
     name,
+    startOpen,
 }: {
     node: TreeNode | TreeNodeWithChildren
     selectedId?: number | string
     onSelect: (id: number | string) => void
     name: string
+    startOpen: boolean
 }) => {
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(startOpen)
     const isSelected = selectedId === node.id
 
     if ('children' in node && node.children.length > 0) {
@@ -161,6 +163,7 @@ const HierarchyItemWithChildren = ({
                                 selectedId={selectedId}
                                 onSelect={onSelect}
                                 name={name}
+                                startOpen={startOpen}
                             />
                         ))}
                     </div>
@@ -183,11 +186,13 @@ const HierarchyItem = ({
     selectedId,
     onSelect,
     name,
+    startOpen,
 }: {
     node: TreeNode | TreeNodeWithChildren
     selectedId?: number | string
     onSelect: (id: number | string) => void
     name: string
+    startOpen: boolean
 }) => {
     if ('children' in node && node.children.length > 0) {
         return (
@@ -196,6 +201,7 @@ const HierarchyItem = ({
                 selectedId={selectedId}
                 onSelect={onSelect}
                 name={name}
+                startOpen={startOpen}
             />
         )
     }
@@ -214,6 +220,7 @@ export type HierarchySelectorProps = {
     defaultValue?: number | string
     data: TreeNode[]
     className?: string
+    startOpen?: boolean
 }
 
 export const HierarchySelector = ({
@@ -221,6 +228,7 @@ export const HierarchySelector = ({
     defaultValue,
     data,
     className,
+    startOpen = true,
 }: HierarchySelectorProps) => {
     const [selectedId, setSelectedId] = useState<number | string | undefined>(
         defaultValue,
@@ -238,6 +246,7 @@ export const HierarchySelector = ({
                 <div className="max-h-[calc(100dvh-224px)] overflow-y-auto">
                     {data.map((node) => (
                         <HierarchyItem
+                            startOpen={startOpen}
                             key={node.id}
                             node={node}
                             selectedId={selectedId}
