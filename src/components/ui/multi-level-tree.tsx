@@ -1,13 +1,6 @@
 'use client'
 
-import {
-    Blocks,
-    ChevronDown,
-    ChevronRight,
-    GitBranch,
-    Users,
-    CircleQuestionMark,
-} from 'lucide-react'
+import { ChevronDown, ChevronRight, GitBranch } from 'lucide-react'
 import { useState, type ElementType } from 'react'
 import { Badge } from 'zerel-ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from 'zerel-ui/card'
@@ -15,14 +8,16 @@ import { Card, CardContent, CardHeader, CardTitle } from 'zerel-ui/card'
 import { cn } from '@/lib/utils'
 
 export type TreeNode = {
-    id: number
+    id: number | string
     label: string
-    id_parent: number | null
+    id_parent: number | string | null
     depth: number
-    id_path: number[]
-    companies_count: number
-    users_count: number
-    models_count: number
+    id_path: number | string[]
+    badges?: Array<{
+        icon: ElementType
+        label: string
+        count: number
+    }>
     icon?: ElementType
 }
 
@@ -37,13 +32,12 @@ const HierarchyItemLeaf = ({
     name,
 }: {
     node: TreeNode
-    selectedId?: number
-    onSelect: (id: number) => void
+    selectedId?: number | string
+    onSelect: (id: number | string) => void
     name: string
 }) => {
     const isSelected = selectedId === node.id
 
-    const Icon = node.icon || CircleQuestionMark
     return (
         <div>
             <Card
@@ -57,7 +51,7 @@ const HierarchyItemLeaf = ({
             >
                 <CardContent className="px-2 py-0">
                     <div className="flex items-center justify-between gap-2">
-                        <Icon />
+                        {node.icon ? <node.icon /> : <></>}
                         <div className="flex flex-1 flex-col gap-1">
                             <div className="flex items-center gap-1">
                                 <span className="text-sm font-medium">
@@ -65,20 +59,16 @@ const HierarchyItemLeaf = ({
                                 </span>
                             </div>
                             <div className="flex items-center gap-1">
-                                <Badge
-                                    variant="secondary"
-                                    className="flex items-center gap-1 text-xs"
-                                >
-                                    <Users className="size-3" />
-                                    <span>{node.users_count}</span>
-                                </Badge>
-                                <Badge
-                                    variant="secondary"
-                                    className="flex items-center gap-1 text-xs"
-                                >
-                                    <Blocks className="size-3" />
-                                    <span>{node.models_count}</span>
-                                </Badge>
+                                {node.badges?.map((badge, index) => (
+                                    <Badge
+                                        key={index + badge.label}
+                                        variant="secondary"
+                                        className="flex items-center gap-1 text-xs"
+                                    >
+                                        <badge.icon className="size-3" />
+                                        <span>{badge.count}</span>
+                                    </Badge>
+                                ))}
                             </div>
                         </div>
                     </div>
@@ -96,13 +86,12 @@ const HierarchyItemWithChildren = ({
     name,
 }: {
     node: TreeNode | TreeNodeWithChildren
-    selectedId?: number
-    onSelect: (id: number) => void
+    selectedId?: number | string
+    onSelect: (id: number | string) => void
     name: string
 }) => {
     const [open, setOpen] = useState(true)
     const isSelected = selectedId === node.id
-    const Icon = node.icon || CircleQuestionMark
 
     if ('children' in node && node.children.length > 0) {
         return (
@@ -134,26 +123,22 @@ const HierarchyItemWithChildren = ({
                                     <ChevronRight className="size-4" />
                                 )}
                             </button>
-                            <Icon />
+                            {node.icon ? <node.icon /> : <></>}
                             <div className="flex flex-1 flex-col">
                                 <span className="text-sm font-medium">
                                     {node.label}
                                 </span>
                                 <div className="flex items-center gap-1">
-                                    <Badge
-                                        variant="secondary"
-                                        className="flex items-center gap-1 text-xs"
-                                    >
-                                        <Users className="size-3" />
-                                        <span>{node.users_count}</span>
-                                    </Badge>
-                                    <Badge
-                                        variant="secondary"
-                                        className="flex items-center gap-1 text-xs"
-                                    >
-                                        <Blocks className="size-3" />
-                                        <span>{node.models_count}</span>
-                                    </Badge>
+                                    {node.badges?.map((badge, index) => (
+                                        <Badge
+                                            key={index + badge.label}
+                                            variant="secondary"
+                                            className="flex items-center gap-1 text-xs"
+                                        >
+                                            <badge.icon className="size-3" />
+                                            <span>{badge.count}</span>
+                                        </Badge>
+                                    ))}
                                 </div>
                             </div>
                         </div>
@@ -200,8 +185,8 @@ const HierarchyItem = ({
     name,
 }: {
     node: TreeNode | TreeNodeWithChildren
-    selectedId?: number
-    onSelect: (id: number) => void
+    selectedId?: number | string
+    onSelect: (id: number | string) => void
     name: string
 }) => {
     if ('children' in node && node.children.length > 0) {
@@ -237,7 +222,7 @@ export const HierarchySelector = ({
     data,
     className,
 }: HierarchySelectorProps) => {
-    const [selectedId, setSelectedId] = useState<number | undefined>(
+    const [selectedId, setSelectedId] = useState<number | string | undefined>(
         defaultValue,
     )
 
